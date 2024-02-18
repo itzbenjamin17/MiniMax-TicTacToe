@@ -145,7 +145,6 @@ def MiniMaxAB(board,MaximisingPlayer,alpha,beta):
             beta = min(beta,currentEval)
             if beta <= alpha:
                 break
-            
         return [None,minEval]
 
 
@@ -176,7 +175,7 @@ def TicTacToe():
         if enter_letter(board, player_turn,number[0]):
                     display_board(board)
                     if CheckWinner(board):
-                        print(f"{"{Player" if player_turn == "X" else "Computer"} wins!!") 
+                        print(f"{"Player" if player_turn == "X" else "Computer"} wins!!") 
                         GameOver = True
                     elif FullBoard(board):
                         print("Draw") 
@@ -185,17 +184,17 @@ def TicTacToe():
                     player_turn = "O" if player_turn == "X" else "X"
                     number = []
         if GameOver:
-            board = CreateBoard()
-            Again = input("Do you want to play again (y/n)").lower()
+            Again = input("Do you want to play again (y/n): ").lower()
             while Again != "y" and Again != "n":
-                Again = input("Please enter 'y' or 'n'").lower()
+                Again = input("Please enter 'y' or 'n': ").lower()
             GameOver = True if Again == "n" else False
             if not GameOver:
                 ans = input("Do you want to go first (yes/no): ")
                 while ans != "yes" and ans != "no":
                     ans = input("Do you want to go first (yes/no): ")
-
                 player_turn = "X" if ans == "yes" else "O"
+                board = CreateBoard()
+                display_board(board)
 
 
 
